@@ -188,7 +188,7 @@ function SreachCandidat(){
     }
     console.log(`le nombre total de votes exprimés dans toute l'élection : ${nbtV}`);
 
-    // le Top 3 des candidats ayant le plus de votes
+    // les Top 3 des candidats ayant le plus de votes
     let t1 = 0;
     let t2 = 0;
     let t3 = 0;
@@ -211,6 +211,31 @@ console.log("---TOP 3----");
 console.log(`TOP 1 : ${t1}`);
 console.log(`TOP 2 : ${t2}`);
 console.log(`TOP 3 : ${t3}`);
+
+
+// Afficher le nombre de candidats par parti politique. 
+let parti = [];
+let nb = [];
+
+for (let cle of candidat){
+    let trouve = false ;
+    for(let i=0 ; i< parti.length ; i++ ){
+        if(parti == cle.partiPolitique){
+            nb ++ ;
+        trouve = true ;
+        }
+        
+    }
+    if(!trouve){
+    parti.push(cle.partiPolitique);
+    nb.push(1);
+}
+}
+ console.log(`nombre de candidats par parti politique : `)
+for (let i=0 ; i< parti.length ; i++){
+   
+    console.log(parti[i]+ "->" +nb[i]);
+}
 
 }
 
