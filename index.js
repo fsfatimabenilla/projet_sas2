@@ -14,7 +14,10 @@ function addCandidat(){
    if(!trouve){
      let nom = prompt("saisir nom du candidat : ");
    let prenom = prompt("saisir prenom du candidat : ");
-   let partiPolitique = prompt("saisir parti Politique du candidat : ");
+   let partiPolitique = prompt("saisir parti Politique du candidat (): ");
+   if(partiPolitique === ""){
+    partiPolitique = "indépandant";
+   }
    let age = prompt("saisir age du candidat : ");
     let nvCandidat ={
         cin : cin ,
@@ -97,7 +100,7 @@ function Vote(){
     if(!trouve){
         console.log("l'electeur a le droit pour voter : ");
     }else{
-        console.log(" CIN de l’électeur existe déjà dans une liste de votes");
+        console.log(" CIN de l’électeur existe déjà dans une liste de votes : ");
     }
 let cinCn = prompt("Saisir CIN  du candidats pour voter :");
     for(let cle of candidat){
@@ -115,20 +118,15 @@ function UpdateCandidat(){
     for(let cle of candidat){
         if(cle.cin == cin){
             trouve = true ;
-            break ;
-    }
-}
-for(cle of candidat){
-      if(trouve){
-         cle.partiPolitique = prompt("saisir nouveau partiPolitique ");
+              cle.partiPolitique = prompt("saisir nouveau partiPolitique ");
             cle.age = Number(prompt("saisir nouveau age : "));
             console.log("Candidats modifié avec succées ! ");
-            }
+            break ;
+    }
 }
   if(!trouve){
             console.log("CIN introuvable ! ");
         }
-    
 }
 // 6. Supprimer un candidat :
 function DeleteCandidat(){
@@ -190,7 +188,7 @@ function SreachCandidat(){
     }
     console.log(`le nombre total de votes exprimés dans toute l'élection : ${nbtV}`);
 
-    // 
+
 }
 
    
