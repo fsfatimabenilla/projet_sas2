@@ -188,6 +188,29 @@ function SreachCandidat(){
     }
     console.log(`le nombre total de votes exprimés dans toute l'élection : ${nbtV}`);
 
+    // le Top 3 des candidats ayant le plus de votes
+    let t1 = 0;
+    let t2 = 0;
+    let t3 = 0;
+    for (let cle of candidat){
+        if(cle.electeurs.length > t1){
+            t1 = cle.electeurs.length ;
+        }
+    }
+    for (let cle of candidat){
+        if(cle.electeurs.length > t2  && cle.electeurs.length < t1 ){
+            t2 = cle.electeurs.length ;
+        }
+    }
+     for (let cle of candidat){
+        if(cle.electeurs.length > t3  && cle.electeurs.length < t2 ){
+            t3 = cle.electeurs.length ;
+        }
+    }
+console.log("---TOP 3----");
+console.log(`TOP 1 : ${t1}`);
+console.log(`TOP 2 : ${t2}`);
+console.log(`TOP 3 : ${t3}`);
 
 }
 
