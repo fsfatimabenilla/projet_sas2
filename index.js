@@ -104,6 +104,29 @@ let cinCn = prompt("Saisir CIN  du candidats pour voter :");
     }
      
 }
+// 5. Modifier les informations d'un candidat : 
+function UpdateCandidat(){
+    cin = prompt("Saisir CIN de candidat pour modifier :  ");
+    let trouve =false ;
+    for(let cle of candidat){
+        if(cle.cin == cin){
+            trouve = true ;
+            break ;
+    }
+}
+for(cle of candidat){
+      if(trouve){
+         cle.partiPolitique = prompt("saisir nouveau partiPolitique ");
+            cle.age = Number(prompt("saisir nouveau age : "));
+            console.log("Candidats modifié avec succées ! ");
+            }
+}
+  if(!trouve){
+            console.log("CIN introuvable ! ");
+        }
+    
+}
+0
 // 3. Afficher la liste des candidats : 
 function ListCandidat() {
 let choix2 = 0;
@@ -158,7 +181,7 @@ console.log("0. quitter le programme");
                  UpdateCandidat();
                 break;
             case '6':
-                 DaleteCandidat();
+                 DeleteCandidat();
                 break;
             case '7':
                  SreachCandidat();
@@ -173,18 +196,3 @@ console.log("0. quitter le programme");
                 console.log("saisir un choix dans le menu");
         }
 }while(choix !=0)
-    /* let cin = prompt("Saisir cin du candidat : ");
-    let nom = prompt("saisir nom du candidat : ");
-   let prenom = prompt("saisir prenom du candidat : ");
-   let partiPolitique = prompt("saisir parti Politique du candidat : ");
-   let age = prompt("saisir age du candidat : ");
-    let nvCandidat ={
-        cin : cin ,
-        nom : nom ,
-        prenom : prenom ,
-       partiPolitique : partiPolitique,
-        age : age ,
-        electeurs :[] 
-    }
-    candidat.push(nvCandidat);
-    console.log(`Candidat ${i} ajouté avec succés `);*/
