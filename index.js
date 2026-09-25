@@ -153,7 +153,26 @@ if(trouve){
 }
 }
 
-
+// 7. Rechercher des candidats :
+function SreachCandidat(){
+    nom = prompt("saisir nom du candidat pour rechercher  ")
+    let trouve = false ;
+    for(let cle of candidat ){
+        if(cle.nom == nom ){
+               console.log(`Cin ${cle.cin}:`)
+            console.log(`nom :${cle.nom}`);
+            console.log(`prenom : ${cle.prenom}`);
+            console.log(`partiPolitique : ${cle.partiPolitique}`);
+            console.log(`age : ${cle.age}`);
+            console.log(`Nombres des votes : ${cle.electeurs.length}`);
+            trouve = true ;
+           
+        }
+    }
+    if(!trouve){
+         console.log("aucun Candidat avec ce nom !"); 
+}
+}
    
     
 // 3. Afficher la liste des candidats : 
