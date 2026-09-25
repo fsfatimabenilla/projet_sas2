@@ -175,15 +175,22 @@ function SreachCandidat(){
 }
 // 8. Statistiques de l'élection : 
     
- function statistiques(){
+ function Statistiques(){
    // nbr total du candidats
-    let nbt = 0 ;
+    let nbtC = 0 ;
     for (let cle of candidat){
-        nbt ++ 
+        nbtC ++ 
     } 
-    console.log(`Nombre total de candidat : ${nbt}`)
+    console.log(`Nombre total de candidat : ${nbtC}`)
     
+    // le nombre total de votes exprimés dans toute l'élection.
+    let nbtV = 0
+    for (let cle of candidat){
+        nbtV = nbtV + cle.electeurs.length ; 
+    }
+    console.log(`le nombre total de votes exprimés dans toute l'élection : ${nbtV}`);
 
+    // 
 }
 
    
