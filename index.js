@@ -43,12 +43,15 @@ function addLotCandidat(){
 
 // 3. 1/Trier les candidats par nombre de votes
 function TreierParVote(){
+    if(candidat.length==0){
+    console.log("aucun enregistrements trouvé ! ");
+}
      for(i=0;i<candidat.length-1;i++){
     for(j=0;j<candidat.length-1-i;j++){
         if(candidat[j].electeurs.length<candidat[j+1].electeurs.length){
-            let x =trips[j]
-            trips[j] = trips[j+1]
-            trips[j+1] = x
+            let x =candidat[j]
+            candidat[j] = candidat[j+1]
+            candidat[j+1] = x
         }
     }
 }
@@ -60,6 +63,7 @@ for(let cle of candidat){
             console.log("age : "+cle.age);
             console.log(`Nombres des votes : ${cle.electeurs.length}`);
 }
+
 }
 // 3. 2/ Filtrer parti politique  :
 function FiltrerParti(){
@@ -126,7 +130,32 @@ for(cle of candidat){
         }
     
 }
-0
+// 6. Supprimer un candidat :
+function DeleteCandidat(){
+     cin = prompt("Saisir CIN de candidat pour supprimé :  ");
+     let nvCandidat = [];
+    let trouve =false ;
+    for(let cle of candidat){
+        if(cle.cin == cin){
+            trouve = true ;
+    }else{
+        nvCandidat.push(cle);
+    }
+}
+if(trouve){
+    candidat.length = 0 ;
+    for(let cle of nvCandidat){
+        candidat.push(cle);
+    }
+    console.log("Candidats supprimé avec succées ! ");
+}else{
+    console.log("Cin Introuvable")
+}
+}
+
+
+   
+    
 // 3. Afficher la liste des candidats : 
 function ListCandidat() {
 let choix2 = 0;
