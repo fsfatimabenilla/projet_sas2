@@ -173,6 +173,19 @@ function SreachCandidat(){
          console.log("aucun Candidat avec ce nom !"); 
 }
 }
+// 8. Statistiques de l'élection : 
+    
+ function statistiques(){
+   // nbr total du candidats
+    let nbt = 0 ;
+    for (let cle of candidat){
+        nbt ++ 
+    } 
+    console.log(`Nombre total de candidat : ${nbt}`)
+    
+
+}
+
    
     
 // 3. Afficher la liste des candidats : 
