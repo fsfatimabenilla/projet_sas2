@@ -1,7 +1,72 @@
 const prompt = require('prompt-sync')();
 
 // 1- Ajouter un nouveau candidat :
-const candidat = [];
+const candidat = [
+    {
+        cin: "AB123456",
+        nom: "Alami",
+        prenom: "Sara",
+        age: 35,
+        partiPolitique: "Independant",
+        electeurs: ["CD111111", "CD222222", "CD333333"]
+    },
+    {
+        cin: "BE234567",
+        nom: "Benali",
+        prenom: "Youssef",
+        age: 42,
+        partiPolitique: "Parti A",
+        electeurs: ["CD444444", "CD555555"]
+    },
+    {
+        cin: "CF345678",
+        nom: "Chakir",
+        prenom: "Nadia",
+        age: 38,
+        partiPolitique: "Parti B",
+        electeurs: ["CD666666", "CD777777", "CD888888", "CD999999"]
+    },
+    {
+        cin: "DG456789",
+        nom: "Daoudi",
+        prenom: "Omar",
+        age: 51,
+        partiPolitique: "Parti A",
+        electeurs: ["CD101010"]
+    },
+    {
+        cin: "EH567890",
+        nom: "El Idrissi",
+        prenom: "Imane",
+        age: 29,
+        partiPolitique: "Parti C",
+        electeurs: ["CD111222", "CD333444", "CD555666"]
+    },
+    {
+        cin: "FI678901",
+        nom: "Fassi",
+        prenom: "Karim",
+        age: 46,
+        partiPolitique: "Independant",
+        electeurs: ["CD777888", "CD999000"]
+    },
+    {
+        cin: "GJ789012",
+        nom: "Ghazali",
+        prenom: "Meryem",
+        age: 33,
+        partiPolitique: "Parti B",
+        electeurs: ["CD121212", "CD343434", "CD565656", "CD787878", "CD909090"]
+    },
+    {
+        cin: "HK890123",
+        nom: "Haddad",
+        prenom: "Anas",
+        age: 40,
+        partiPolitique: "Parti C",
+        electeurs: ["CD232323"]
+    }
+];
 function addCandidat(){
    let cin = prompt("Saisir cin du candidat : ");
    let trouve = false;
@@ -42,6 +107,23 @@ function addLotCandidat(){
    
 }
 
+//3 affichge simple 
+function AfficherCandidats() {
+    if (candidat.length == 0) {
+        console.log("Aucun enregistrement trouvé !");
+        return;
+    }
+
+    for (let cle of candidat) {
+        console.log(`CIN : ${cle.cin}`);
+        console.log(`Nom : ${cle.nom}`);
+        console.log(`Prénom : ${cle.prenom}`);
+        console.log(`Parti politique : ${cle.partiPolitique}`);
+        console.log(`Âge : ${cle.age}`);
+        console.log(`Nombre de votes : ${cle.electeurs.length}`);
+        console.log("---------------------------");
+    }
+}
 
 
 // 3. 1/Trier les candidats par nombre de votes
@@ -296,34 +378,48 @@ for (let i=0 ; i< parti.length  ; i++){
         upAge();
         break;
     case '0':
-        choix ;
+        break ;
     default:
         console.log("saisir un choix dans le menu : ");
  }
-        } while(choix3!=0)
+        } while(choix3!= 0)
     }
 // 3. Afficher la liste des candidats : 
 function ListCandidat() {
-let choix2 = 0;
-do {
-console.log("1/ Trier les candidats par nombre de votes :  ");
-console.log("2/ Filtrer et afficher uniquement les candidats d'un parti politique spécifique :  ");
-console.log("0/ Revenir au menu principale ")
- choix2 = prompt("saisir  une option  : ");
- switch(choix2){
-    case '1':
-        TreierParVote();
-        break ;
-    case '2':
-        FiltrerParti();
-        break ;
-    case '0':
-        choix ;
-    default:
-        console.log("saisir un choix dans le menu");
- }
-} while (choix2!= 0) 
+    let choix2 = 0;
+
+    do {
+        console.log("1/ Afficher tous les candidats");
+        console.log("2/ Trier les candidats par nombre de votes");
+        console.log("3/ Filtrer par parti politique");
+        console.log("0/ Revenir au menu principal");
+
+        choix2 = prompt("Saisir une option : ");
+
+        switch (choix2) {
+
+            case '1':
+                AfficherCandidats();
+                break;
+
+            case '2':
+                TreierParVote();
+                break;
+
+            case '3':
+                FiltrerParti();
+                break;
+
+            case '0':
+                break;
+
+            default:
+                console.log("Saisir un choix valide !");
+        }
+
+    } while (choix2 != '0');
 }
+
 // menu
 let choix = 0;
 do{
@@ -370,4 +466,4 @@ console.log("0. quitter le programme");
             default:
                 console.log("saisir un choix dans le menu");
         }
-}while(choix !=0)
+}while(choix !='0')
