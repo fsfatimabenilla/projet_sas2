@@ -14,7 +14,7 @@ function addCandidat(){
    if(!trouve){
      let nom = prompt("saisir nom du candidat : ");
    let prenom = prompt("saisir prenom du candidat : ");
-   let partiPolitique = prompt("saisir parti Politique du candidat (): ");
+   let partiPolitique = prompt("saisir parti Politique du candidat (si tu laisse pp vide alore : 'Indépendant'): ");
    if(partiPolitique === ""){
     partiPolitique = "indépandant";
    }
@@ -112,15 +112,64 @@ let cinCn = prompt("Saisir CIN  du candidats pour voter :");
      
 }
 // 5. Modifier les informations d'un candidat : 
-function UpdateCandidat(){
+// 5.update nom :
+function upNom(){
     cin = prompt("Saisir CIN de candidat pour modifier :  ");
     let trouve =false ;
     for(let cle of candidat){
         if(cle.cin == cin){
             trouve = true ;
-              cle.partiPolitique = prompt("saisir nouveau partiPolitique ");
+              cle.nom = prompt("saisir nouveau nom :  ");
+              console.log("nom du Candidats modifié avec succées ! ");
+            break ;
+    }
+}
+  if(!trouve){
+            console.log("CIN introuvable ! ");
+        }
+}
+// 5.2 update prenom
+function upPrenom(){
+    cin = prompt("Saisir CIN de candidat pour modifier :  ");
+    let trouve =false ;
+    for(let cle of candidat){
+        if(cle.cin == cin){
+            trouve = true ;
+              cle.prenom = prompt("saisir nouveau prenom :  ");
+            console.log("prenom du Candidats modifié avec succées ! ");
+            break ;
+    }
+}
+  if(!trouve){
+            console.log("CIN introuvable ! ");
+        }
+}
+// 5.3 update parti politique :
+function upParti(){
+    cin = prompt("Saisir CIN de candidat pour modifier :  ");
+    let trouve =false ;
+    for(let cle of candidat){
+        if(cle.cin == cin){
+            trouve = true ;
+              cle.partiPolitique = prompt("saisir nouveau partiPolitique :  ");
+            console.log("partiPolitique du Candidats modifié avec succées ! ");
+            break ;
+    }
+}
+  if(!trouve){
+            console.log("CIN introuvable ! ");
+        }
+}
+
+// 5.4 update age :
+function upAge(){
+    cin = prompt("Saisir CIN de candidat pour modifier :  ");
+    let trouve =false ;
+    for(let cle of candidat){
+        if(cle.cin == cin){
+            trouve = true ;
             cle.age = Number(prompt("saisir nouveau age : "));
-            console.log("Candidats modifié avec succées ! ");
+            console.log("age du Candidats modifié avec succées ! ");
             break ;
     }
 }
@@ -191,7 +240,7 @@ function SreachCandidat(){
     // les Top 3 des candidats ayant le plus de votes
     TreierParVote();
     console.log("--- TOP 3-----");
-    for(let i=0;i<3 && i<candidat[i] ;i++){
+    for(let i=0;i<3 && i<candidat.length ;i++){
         console.log(`${candidat[i].nom}->${candidat[i].electeurs.length}`);
     }
 
@@ -202,8 +251,8 @@ let nb = [];
 for (let cle of candidat){
     let trouve = false ;
     for(let i=0 ; i< parti.length ; i++ ){
-        if(parti == cle.partiPolitique){
-            nb ++ ;
+        if(parti[i] == cle.partiPolitique){.0
+            nb[i] ++ ;
         trouve = true ;
         }
         
@@ -218,8 +267,36 @@ for (let i=0 ; i< parti.length  ; i++){
     console.log(parti[i]+ "->" +nb[i]);
 }
 }
-
-    
+//5. Modifier les informations d'un candidat :
+    function UpdateCandidat(){
+        let choix3 = 0;
+        do {
+            console.log("1/ Modifier nom du condidats :");
+            console.log("2/ Modifier prenom du condidats :");
+            console.log("3/ Modifier parti politique du condidats :");
+            console.log("4/ Modifier age du condidats :");
+            console.log("0/ Revenir au menu principale ");
+            choix3 = prompt("saisir  une option  : ");
+            switch(choix3){
+    case '1':
+        upNom();
+        break ;
+    case '2':
+        upPrenom();
+        break ;
+    case '3':
+        upParti();
+        break ;
+    case '4':
+        upAge();
+        break;
+    case '0':
+        choix ;
+    default:
+        console.log("saisir un choix dans le menu : ");
+ }
+        } while(choix3!=0)
+    }
 // 3. Afficher la liste des candidats : 
 function ListCandidat() {
 let choix2 = 0;
