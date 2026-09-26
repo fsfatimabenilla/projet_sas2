@@ -1,7 +1,7 @@
 const prompt = require('prompt-sync')();
 
 // 1- Ajouter un nouveau candidat :
-const candidat =[];
+const candidat = [];
 function addCandidat(){
    let cin = prompt("Saisir cin du candidat : ");
    let trouve = false;
@@ -101,15 +101,20 @@ function Vote(){
         console.log("l'electeur a le droit pour voter : ");
     }else{
         console.log(" CIN de l’électeur existe déjà dans une liste de votes : ");
+        return ; 
     }
 let cinCn = prompt("Saisir CIN  du candidats pour voter :");
+let cntrouve = false ;
     for(let cle of candidat){
         if(cle.cin==(cinCn)){
+            cntrouve = true ;
             cle.electeurs.push(cinEl);
            console.log("Vote ajouté avec succès !")
         }
     }
-     
+    if(!cntrouve){
+        console.log("Cin du candidat introuvable !");
+    }
 }
 // 5. Modifier les informations d'un candidat : 
 // 5.update nom :
